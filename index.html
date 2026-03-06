@@ -171,7 +171,8 @@
         fd.append('total_price', limit === 6 ? "6000 DA" : "3500 DA");
 
         // 2. إرسال البيانات لجوجل شيت مع ضمان عدم إغلاق الصفحة قبل وصول بيانات البيكسل
-        fetch(scriptURL, { method: 'POST', body: fd })
+       trackPurchase();
+          fetch(scriptURL, { method: 'POST', body: fd })
         .then(() => {
             alert('تم تسجيل طلبك بنجاح! سنتصل بك قريباً.');
             // نترك نافذة زمنية للبيكسل ليرسل الطلب بالخلفية
@@ -185,4 +186,5 @@
 </script>
 </body>
 </html>
+
 
