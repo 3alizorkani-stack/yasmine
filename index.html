@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+      <meta name="facebook-domain-verification" content="qsbsadz9xylnwrzalq1alos7e3o1ig" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUXE JEWELS | متجر المجوهرات الذكي</title>
@@ -11,12 +12,13 @@
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    
-    fbq('init', '1244484937138451'); // رقم البيكسل الخاص بك
+    fbq('init', '1244484937138451'); 
     </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1244484937138451&ev=PageView&noscript=1"
+    /></noscript>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Amiri:wght@700&display=swap" rel="stylesheet">
     <style>
         :root { --gold: #c5a059; --dark: #1a1a1a; --bg: #fdfdfd; }
@@ -102,21 +104,15 @@
 <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxUJQfFU7y9w_GRQV6I1HnynWVS8sHtoaBYOemSnkwdYwmsnEklxxgCvZAwo_M-bv0b/exec';
     const wilayas = ["01-أدرار", "02-الشلف", "03-الأغواط", "04-أم البواقي", "05-باتنة", "06-بجاية", "07-بسكرة", "08-بشار", "09-البليدة", "10-البويرة", "11-تمنراست", "12-تبسة", "13-تلمسان", "14-تيارت", "15-تيزي وزو", "16-الجزائر", "17-الجلفة", "18-جيجل", "19-سطيف", "20-سعيدة", "21-سكيكدة", "22-سيدي بلعباس", "23-عنابة", "24-قالمة", "25-قسنطينة", "26-المدية", "27-مستغانم", "28-المسيلة", "29-معسكر", "30-ورقلة", "31-وهران", "32-البيض", "33-إليزي", "34-برج بوعريريج", "35-بومرداس", "36-الطارف", "37-تندوف", "38-تيسمسيلت", "39-الوادي", "40-خنشلة", "41-سوق أهراس", "42-تيبازة", "43-ميلة", "44-عين الدفلى", "45-النعامة", "46-عين تموشنت", "47-غرداية", "48-غليزان", "49-تيميمون", "50-برج باجي مختار", "51-أولاد جلال", "52-بني عباس", "53-عين صالح", "54-عين قزام", "55-تقرت", "56-جانت", "57-المغير", "58-المنيعة"];
-   
     let limit = 0;
 
     window.onload = () => {
         const wSelect = document.getElementById('wilaya');
         wilayas.forEach(w => wSelect.innerHTML += `<option value="${w}">${w}</option>`);
-       
-        fetch(scriptURL)
-        .then(res => res.json())
-        .then(inventory => {
+        fetch(scriptURL).then(res => res.json()).then(inventory => {
             document.querySelectorAll('.img-item').forEach(item => {
                 let name = item.querySelector('img').alt;
-                if (inventory[name] !== undefined && inventory[name] <= 0) {
-                    item.classList.add('sold-out');
-                }
+                if (inventory[name] !== undefined && inventory[name] <= 0) item.classList.add('sold-out');
             });
         }).catch(e => console.log("Inventory load error"));
     };
@@ -130,53 +126,36 @@
         document.getElementById('orderBar').style.display = 'flex';
         document.getElementById('maxLimit').innerText = l;
         updateCounter();
-
-        // تتبع حدث "إضافة إلى السلة" عند اختيار الباقة
-        if(typeof fbq !== 'undefined') {
-            fbq('track', 'AddToCart', {
-                content_name: 'Bundle ' + l,
-                value: l === 6 ? 6000 : 3500,
-                currency: 'DZD'
-            });
-        }
-        
         window.scrollTo({ top: 500, behavior: 'smooth' });
     }
 
     function handleSmartSelect(el) {
         const cat = el.getAttribute('data-cat');
         const prev = document.querySelector(`.img-item.selected[data-cat="${cat}"]`);
-        if (!prev && document.querySelectorAll('.img-item.selected').length >= limit) {
-            alert("اكتمل عدد قطع الباقة!"); return;
-        }
+        if (!prev && document.querySelectorAll('.img-item.selected').length >= limit) { alert("اكتمل عدد قطع الباقة!"); return; }
         if (prev) prev.classList.remove('selected');
         el.classList.add('selected');
         updateCounter();
     }
 
-    function updateCounter() {
-        document.getElementById('currCount').innerText = document.querySelectorAll('.img-item.selected').length;
-    }
-
-    function openModal() {
-        if (document.querySelectorAll('.img-item.selected').length < limit) {
-            alert(`يرجى اختيار ${limit} قطع أولاً`); return;
-        }
-        
-        // تتبع حدث "بدء الدفع" عند فتح نافذة المعلومات
-        if(typeof fbq !== 'undefined') {
-            fbq('track', 'InitiateCheckout');
-        }
-
-        document.getElementById('order-modal').style.display = 'flex';
-    }
-
+    function updateCounter() { document.getElementById('currCount').innerText = document.querySelectorAll('.img-item.selected').length; }
+    function openModal() { if (document.querySelectorAll('.img-item.selected').length < limit) { alert(`يرجى اختيار ${limit} قطع أولاً`); return; } document.getElementById('order-modal').style.display = 'flex'; }
     function closeModal() { document.getElementById('order-modal').style.display = 'none'; }
 
-    document.getElementById('orderForm').addEventListener('submit', e => {
+    // --- التعديل الجوهري هنا ---
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
         e.preventDefault();
         const btn = document.getElementById('submitBtn');
-        btn.innerText = "جاري الإرسال..."; btn.disabled = true;
+        btn.innerText = "جاري الحفظ..."; btn.disabled = true;
+
+        // 1. إرسال الشراء لفيسبوك فوراً وبأعلى أولوية
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'Purchase', {
+                value: limit === 6 ? 6000 : 3500,
+                currency: 'DZD'
+            });
+            console.log("Pixel Purchase Sent");
+        }
 
         let items = [];
         document.querySelectorAll('.img-item.selected img').forEach(img => items.push(img.alt));
@@ -189,19 +168,14 @@
         fd.append('selected_items', items.join(' + '));
         fd.append('total_price', limit === 6 ? "6000 DA" : "3500 DA");
 
+        // 2. إرسال البيانات لجوجل شيت مع ضمان عدم إغلاق الصفحة قبل وصول بيانات البيكسل
         fetch(scriptURL, { method: 'POST', body: fd })
         .then(() => {
-            // تتبع حدث الشراء الفعلي عند النجاح فقط
-            if(typeof fbq !== 'undefined') {
-                fbq('track', 'Purchase', {
-                    value: limit === 6 ? 6000 : 3500,
-                    currency: 'DZD',
-                    content_type: 'product_group'
-                });
-            }
             alert('تم تسجيل طلبك بنجاح! سنتصل بك قريباً.');
-            location.reload();
-        }).catch(() => {
+            // نترك نافذة زمنية للبيكسل ليرسل الطلب بالخلفية
+            setTimeout(() => { location.reload(); }, 1200);
+        })
+        .catch(() => {
             alert('خطأ في الإرسال، حاول ثانية');
             btn.disabled = false; btn.innerText = "تأكيد الطلب الآن";
         });
@@ -209,7 +183,3 @@
 </script>
 </body>
 </html>
-
-
-
-
