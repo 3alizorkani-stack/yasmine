@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-      <meta name="facebook-domain-verification" content="qsbsadz9xylnwrzalq1alos7e3o1ig" />
+    <meta name="facebook-domain-verification" content="qsbsadz9xylnwrzalq1alos7e3o1ig" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUXE JEWELS | متجر المجوهرات الذكي</title>
-   
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -14,13 +13,10 @@
     n.queue=[];t=b.createElement(e);t.async=!0;
     s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1244484937138451');
+    fbq('init', '1244484937138451'); 
     fbq('track', 'PageView');
-      function trackPurchase() {
-  fbq('track', 'Purchase', {currency: 'USD', value: 10.00});
-}    
     </script>
-   
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1244484937138451&ev=PageView&noscript=1"/></noscript>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Amiri:wght@700&display=swap" rel="stylesheet">
     <style>
         :root { --gold: #c5a059; --dark: #1a1a1a; --bg: #fdfdfd; }
@@ -54,12 +50,10 @@
     </style>
 </head>
 <body>
-
 <header>
     <div class="logo">LUXE JEWELS</div>
     <p>نظام الطلب الذكي والمخزون المباشر</p>
 </header>
-
 <div class="container">
     <div class="bundle-grid">
         <div class="bundle-card" onclick="initStore(6)">
@@ -73,7 +67,6 @@
             <b>3500 دج</b>
         </div>
     </div>
-
     <div id="selection-area">
         <div class="cat-box"><p class="cat-title">الأحزمة</p><div class="image-grid"><div class="img-item" data-cat="belts" onclick="handleSmartSelect(this)"><img src="belt1.jpg" alt="حزام 1"></div><div class="img-item" data-cat="belts" onclick="handleSmartSelect(this)"><img src="belt2.jpg" alt="حزام 2"></div><div class="img-item" data-cat="belts" onclick="handleSmartSelect(this)"><img src="belt3.jpg" alt="حزام 3"></div><div class="img-item" data-cat="belts" onclick="handleSmartSelect(this)"><img src="belt4.jpg" alt="حزام 4"></div></div></div>
         <div class="cat-box"><p class="cat-title">الخواتم</p><div class="image-grid"><div class="img-item" data-cat="rings" onclick="handleSmartSelect(this)"><img src="ring1.jpg" alt="خاتم 1"></div><div class="img-item" data-cat="rings" onclick="handleSmartSelect(this)"><img src="ring2.jpg" alt="خاتم 2"></div></div></div>
@@ -83,7 +76,6 @@
         <div class="cat-box"><p class="cat-title">السلاسل</p><div class="image-grid"><div class="img-item" data-cat="chains" onclick="handleSmartSelect(this)"><img src="chain1.jpg" alt="سلسلة 1"></div><div class="img-item" data-cat="chains" onclick="handleSmartSelect(this)"><img src="chain2.jpg" alt="سلسلة 2"></div><div class="img-item" data-cat="chains" onclick="handleSmartSelect(this)"><img src="chain3.jpg" alt="سلسلة 3"></div><div class="img-item" data-cat="chains" onclick="handleSmartSelect(this)"><img src="chain4.jpg" alt="سلسلة 4"></div></div></div>
     </div>
 </div>
-
 <div id="order-modal">
     <div class="modal-content">
         <h2 style="margin-bottom: 20px; color: var(--gold);">بيانات التوصيل</h2>
@@ -97,17 +89,14 @@
         </form>
     </div>
 </div>
-
 <div class="order-bar" id="orderBar" style="display: none;">
     <div>المختار: <b id="currCount">0</b> / <b id="maxLimit">0</b></div>
     <button class="btn-send" onclick="openModal()">متابعة الطلب</button>
 </div>
-
 <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxUJQfFU7y9w_GRQV6I1HnynWVS8sHtoaBYOemSnkwdYwmsnEklxxgCvZAwo_M-bv0b/exec';
     const wilayas = ["01-أدرار", "02-الشلف", "03-الأغواط", "04-أم البواقي", "05-باتنة", "06-بجاية", "07-بسكرة", "08-بشار", "09-البليدة", "10-البويرة", "11-تمنراست", "12-تبسة", "13-تلمسان", "14-تيارت", "15-تيزي وزو", "16-الجزائر", "17-الجلفة", "18-جيجل", "19-سطيف", "20-سعيدة", "21-سكيكدة", "22-سيدي بلعباس", "23-عنابة", "24-قالمة", "25-قسنطينة", "26-المدية", "27-مستغانم", "28-المسيلة", "29-معسكر", "30-ورقلة", "31-وهران", "32-البيض", "33-إليزي", "34-برج بوعريريج", "35-بومرداس", "36-الطارف", "37-تندوف", "38-تيسمسيلت", "39-الوادي", "40-خنشلة", "41-سوق أهراس", "42-تيبازة", "43-ميلة", "44-عين الدفلى", "45-النعامة", "46-عين تموشنت", "47-غرداية", "48-غليزان", "49-تيميمون", "50-برج باجي مختار", "51-أولاد جلال", "52-بني عباس", "53-عين صالح", "54-عين قزام", "55-تقرت", "56-جانت", "57-المغير", "58-المنيعة"];
     let limit = 0;
-
     window.onload = () => {
         const wSelect = document.getElementById('wilaya');
         wilayas.forEach(w => wSelect.innerHTML += `<option value="${w}">${w}</option>`);
@@ -118,7 +107,6 @@
             });
         }).catch(e => console.log("Inventory load error"));
     };
-
     function initStore(l) {
         limit = l;
         document.querySelectorAll('.bundle-card').forEach(b => b.classList.remove('active'));
@@ -130,7 +118,6 @@
         updateCounter();
         window.scrollTo({ top: 500, behavior: 'smooth' });
     }
-
     function handleSmartSelect(el) {
         const cat = el.getAttribute('data-cat');
         const prev = document.querySelector(`.img-item.selected[data-cat="${cat}"]`);
@@ -139,29 +126,21 @@
         el.classList.add('selected');
         updateCounter();
     }
-
     function updateCounter() { document.getElementById('currCount').innerText = document.querySelectorAll('.img-item.selected').length; }
     function openModal() { if (document.querySelectorAll('.img-item.selected').length < limit) { alert(`يرجى اختيار ${limit} قطع أولاً`); return; } document.getElementById('order-modal').style.display = 'flex'; }
     function closeModal() { document.getElementById('order-modal').style.display = 'none'; }
-
-    // --- التعديل الجوهري هنا ---
     document.getElementById('orderForm').addEventListener('submit', function(e) {
         e.preventDefault();
         const btn = document.getElementById('submitBtn');
         btn.innerText = "جاري الحفظ..."; btn.disabled = true;
-
-        // 1. إرسال الشراء لفيسبوك فوراً وبأعلى أولوية
         if (typeof fbq !== 'undefined') {
             fbq('track', 'Purchase', {
                 value: limit === 6 ? 6000 : 3500,
                 currency: 'DZD'
             });
-            console.log("Pixel Purchase Sent");
         }
-
         let items = [];
         document.querySelectorAll('.img-item.selected img').forEach(img => items.push(img.alt));
-
         const fd = new FormData();
         fd.append('full_name', document.getElementById('name').value);
         fd.append('wilaya', document.getElementById('wilaya').value);
@@ -169,13 +148,9 @@
         fd.append('phone', document.getElementById('phone').value);
         fd.append('selected_items', items.join(' + '));
         fd.append('total_price', limit === 6 ? "6000 DA" : "3500 DA");
-
-        // 2. إرسال البيانات لجوجل شيت مع ضمان عدم إغلاق الصفحة قبل وصول بيانات البيكسل
-       trackPurchase();
-          fetch(scriptURL, { method: 'POST', body: fd })
+        fetch(scriptURL, { method: 'POST', body: fd })
         .then(() => {
             alert('تم تسجيل طلبك بنجاح! سنتصل بك قريباً.');
-            // نترك نافذة زمنية للبيكسل ليرسل الطلب بالخلفية
             setTimeout(() => { location.reload(); }, 1200);
         })
         .catch(() => {
