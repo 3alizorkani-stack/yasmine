@@ -253,15 +253,18 @@
 
         fetch(scriptURL, { method: 'POST', body: fd })
         .then(() => {
-            // تتبع حدث الشراء في البيكسل عند النجاح
-            if(typeof fbq !== 'undefined') {
-                fbq('track', 'Purchase', {
+            // إرسال حدث الشراء قبل إعادة تحميل الصفحة
+            if(typeof window.fbq !== 'undefined') {
+                window.fbq('track', 'Purchase', {
                     value: limit === 6 ? 6000 : 3500,
                     currency: 'DZD'
                 });
             }
             alert('تم تسجيل طلبك بنجاح! سنتصل بك قريباً.');
-            location.reload();
+            // ننتظر 700 ملي ثانية قبل عمل Refresh لضمان وصول بيانات الفيسبوك
+            setTimeout(() => {
+                location.reload();
+            }, 700);
         }).catch(() => {
             alert('خطأ في الإرسال، حاول ثانية');
             btn.disabled = false; btn.innerText = "تأكيد الطلب الآن";
@@ -270,5 +273,3 @@
 </script>
 </body>
 </html>
-
-
