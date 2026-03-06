@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta name="facebook-domain-verification" content="qsbsadz9xylnwrzalq1alos7e3o1ig" />
+      <meta name="facebook-domain-verification" content="qsbsadz9xylnwrzalq1alos7e3o1ig" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUXE JEWELS | متجر المجوهرات الذكي</title>
@@ -17,7 +17,9 @@
     fbq('init', '1244484937138451'); 
     fbq('track', 'PageView');
     </script>
-
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1244484937138451&ev=PageView&noscript=1"
+    /></noscript>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Amiri:wght@700&display=swap" rel="stylesheet">
     <style>
         :root { --gold: #c5a059; --dark: #1a1a1a; --bg: #fdfdfd; }
@@ -119,7 +121,7 @@
     function initStore(l) {
         limit = l;
         document.querySelectorAll('.bundle-card').forEach(b => b.classList.remove('active'));
-        if (event && event.currentTarget) event.currentTarget.classList.add('active');
+        event.currentTarget.classList.add('active');
         document.querySelectorAll('.img-item').forEach(i => i.classList.remove('selected'));
         document.getElementById('selection-area').style.display = 'block';
         document.getElementById('orderBar').style.display = 'flex';
@@ -141,18 +143,19 @@
     function openModal() { if (document.querySelectorAll('.img-item.selected').length < limit) { alert(`يرجى اختيار ${limit} قطع أولاً`); return; } document.getElementById('order-modal').style.display = 'flex'; }
     function closeModal() { document.getElementById('order-modal').style.display = 'none'; }
 
-    // إرسال البيانات
+    // --- التعديل الجوهري هنا ---
     document.getElementById('orderForm').addEventListener('submit', function(e) {
         e.preventDefault();
         const btn = document.getElementById('submitBtn');
         btn.innerText = "جاري الحفظ..."; btn.disabled = true;
 
-        // أمر الشراء لفيسبوك (مرة واحدة هنا فقط لضمان عمل الـ Test Events)
+        // 1. إرسال الشراء لفيسبوك فوراً وبأعلى أولوية
         if (typeof fbq !== 'undefined') {
             fbq('track', 'Purchase', {
                 value: limit === 6 ? 6000 : 3500,
                 currency: 'DZD'
             });
+            console.log("Pixel Purchase Sent");
         }
 
         let items = [];
@@ -166,13 +169,15 @@
         fd.append('selected_items', items.join(' + '));
         fd.append('total_price', limit === 6 ? "6000 DA" : "3500 DA");
 
+        // 2. إرسال البيانات لجوجل شيت مع ضمان عدم إغلاق الصفحة قبل وصول بيانات البيكسل
         fetch(scriptURL, { method: 'POST', body: fd })
         .then(() => {
-            alert('تم تسجيل طلبك بنجاح!');
+            alert('تم تسجيل طلبك بنجاح! سنتصل بك قريباً.');
+            // نترك نافذة زمنية للبيكسل ليرسل الطلب بالخلفية
             setTimeout(() => { location.reload(); }, 1200);
         })
         .catch(() => {
-            alert('خطأ في الإرسال');
+            alert('خطأ في الإرسال، حاول ثانية');
             btn.disabled = false; btn.innerText = "تأكيد الطلب الآن";
         });
     });
